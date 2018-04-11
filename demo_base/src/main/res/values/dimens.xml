@@ -1,7 +1,8 @@
 <resources>
     <dimen name="big_radius">50dp</dimen>
     <dimen name="small_radius">5dp</dimen>
-    <dimen name="bottom_height">65dp</dimen>
+    <dimen name="bottom_height">56dp</dimen>
+    <dimen name="bottom_sheet_height">65dp</dimen>
     <dimen name="button_radius">2dp</dimen>
 
 </resources>
