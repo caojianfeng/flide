@@ -4,5 +4,7 @@
     <dimen name="bottom_height">56dp</dimen>
     <dimen name="bottom_sheet_height">65dp</dimen>
     <dimen name="button_radius">2dp</dimen>
+    <dimen name="image_width">320dp</dimen>
+    <dimen name="image_height">180dp</dimen>
 
 </resources>
