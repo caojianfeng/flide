@@ -5,5 +5,5 @@ Use Fresco as easy  as Glide
 
 ```
 
-There are lot of things to do.
+There`s a lot of things to do.
 You are welcome to work together with me.
