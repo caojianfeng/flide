@@ -1,1 +1,1 @@
-include ':both', ':demo_base', ':flide'
+include ':demo_both', ':demo_base', ':flide'
