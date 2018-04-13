@@ -8,9 +8,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/demo_base" />
-            <option value="$PROJECT_DIR$/demo_both" />
+            <option value="$PROJECT_DIR$/demo" />
+            <option value="$PROJECT_DIR$/demo-both" />
+            <option value="$PROJECT_DIR$/demo-fesco-only" />
+            <option value="$PROJECT_DIR$/demo-glide-only" />
             <option value="$PROJECT_DIR$/flide" />
+            <option value="$PROJECT_DIR$/flide-both" />
+            <option value="$PROJECT_DIR$/flide-fresco" />
+            <option value="$PROJECT_DIR$/flide-glide" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

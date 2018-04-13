@@ -34,11 +34,7 @@ public abstract class RequestMan {
 
     }
 
-    private com.bumptech.glide.load.engine.DiskCacheStrategy diskCacheStrategy;
-
-    public static void initContext(){
-
-    }
+    abstract public void init();
 
 
     public RequestMan load(String url) {
@@ -86,7 +82,6 @@ public abstract class RequestMan {
         this.cropCenter = true;
         return this;
     }
-
 
     abstract public void into(View imageView);
 }
