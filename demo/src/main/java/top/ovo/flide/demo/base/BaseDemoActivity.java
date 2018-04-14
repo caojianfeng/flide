@@ -86,8 +86,8 @@ public abstract class BaseDemoActivity extends AppCompatActivity implements View
             String url = editTextUrl.getText().toString();
 
             onLoadImageClicked(new ImageConfigs(url).setScale(0.5f)
-                    .setPlaceHolderResId(R.mipmap.place_holder)
-                    .setErrorResId(R.mipmap.image_error));
+                    .setPlaceHolderResId(R.drawable.place_holder)
+                    .setErrorResId(R.drawable.image_error));
 
         } else if (v.getId() == R.id.button_settings) {
 
