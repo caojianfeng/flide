@@ -2,6 +2,7 @@ package top.ovo.flide;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 
 import java.lang.ref.SoftReference;
@@ -13,6 +14,7 @@ import java.lang.ref.SoftReference;
 public abstract class RequestMan {
 
 
+    private static final String TAG = "==== RM ====";
     protected SoftReference<Activity> activitySoftReference;
     protected SoftReference<Context> contextSoftReference;
 
@@ -21,15 +23,15 @@ public abstract class RequestMan {
     protected int errorResId;
     protected float thumbnail;
     protected boolean cropCenter = false;
-    private boolean dontAnimate = false;
-    private boolean crossFade = false;
-    private int crossFadeDuration = 0;
+    protected boolean dontAnimate = false;
+    protected boolean crossFade = false;
+    protected int crossFadeDuration = 0;
 
     public RequestMan(Object contextWith) {
         if (contextWith instanceof Activity) {
             activitySoftReference = new SoftReference<>((Activity) contextWith);
         } else {
-            contextSoftReference = new SoftReference<>((Context)contextWith);
+            contextSoftReference = new SoftReference<>((Context) contextWith);
         }
 
     }
@@ -44,6 +46,7 @@ public abstract class RequestMan {
 
     public RequestMan placeholder(int resId) {
         this.placeHolderResId = resId;
+        Log.e(TAG, "placeholder(" + resId + ") placeHolderResId:" + placeHolderResId, new Throwable());
         return this;
     }
 
@@ -80,6 +83,23 @@ public abstract class RequestMan {
 
     public RequestMan centerCrop() {
         this.cropCenter = true;
+        return this;
+    }
+
+    public RequestMan copy(RequestMan srcRequestMan){
+        this.activitySoftReference = srcRequestMan.activitySoftReference;
+        this.contextSoftReference = srcRequestMan.contextSoftReference;
+
+        this.url = srcRequestMan.url;
+
+        this.placeHolderResId = srcRequestMan.placeHolderResId;
+        this.errorResId = srcRequestMan.errorResId;
+
+        this.cropCenter = srcRequestMan.cropCenter;
+        this.thumbnail = srcRequestMan.thumbnail;
+        this.dontAnimate = srcRequestMan.dontAnimate;
+        this.crossFade = srcRequestMan.crossFade;
+        this.crossFadeDuration = srcRequestMan.crossFadeDuration;
         return this;
     }
 

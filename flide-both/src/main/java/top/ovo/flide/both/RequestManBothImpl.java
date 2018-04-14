@@ -21,7 +21,7 @@ public class RequestManBothImpl extends RequestMan {
 
     public RequestManBothImpl(Object contextWith) {
         super(contextWith);
-        requestManGlide =  new RequestManGlideImpl(contextWith);
+        requestManGlide = new RequestManGlideImpl(contextWith);
         requestManFresco = new RequestManFrescoImpl(contextWith);
     }
 
@@ -41,6 +41,6 @@ public class RequestManBothImpl extends RequestMan {
         } else {
             return;
         }
-        requestMan.init();
+        requestMan.copy(this).into(imageView);
     }
 }
