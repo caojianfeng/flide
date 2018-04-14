@@ -22,10 +22,10 @@ public abstract class RequestMan {
     protected int placeHolderResId;
     protected int errorResId;
     protected float thumbnail;
-    protected boolean cropCenter = false;
     protected boolean dontAnimate = false;
     protected boolean crossFade = false;
     protected int crossFadeDuration = 0;
+    protected boolean centerCrop = false;
 
     public RequestMan(Object contextWith) {
         if (contextWith instanceof Activity) {
@@ -81,8 +81,21 @@ public abstract class RequestMan {
         return this;
     }
 
+    public float getThumbnail() {
+        return thumbnail;
+    }
+
+    public RequestMan setThumbnail(float thumbnail) {
+        this.thumbnail = thumbnail;
+        return this;
+    }
+
+    public boolean isCenterCrop() {
+        return centerCrop;
+    }
+
     public RequestMan centerCrop() {
-        this.cropCenter = true;
+        this.centerCrop = true;
         return this;
     }
 
@@ -95,7 +108,7 @@ public abstract class RequestMan {
         this.placeHolderResId = srcRequestMan.placeHolderResId;
         this.errorResId = srcRequestMan.errorResId;
 
-        this.cropCenter = srcRequestMan.cropCenter;
+        this.centerCrop = srcRequestMan.centerCrop;
         this.thumbnail = srcRequestMan.thumbnail;
         this.dontAnimate = srcRequestMan.dontAnimate;
         this.crossFade = srcRequestMan.crossFade;

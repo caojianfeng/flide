@@ -76,7 +76,7 @@ public class RequestManFrescoImpl extends RequestMan {
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) imageView;
         simpleDraweeView.getHierarchy().setPlaceholderImage(this.placeHolderResId);
         simpleDraweeView.getHierarchy().setFailureImage(this.errorResId);
-        if (this.cropCenter) {
+        if (this.centerCrop) {
             simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
         }
         if (this.thumbnail > 0) {
