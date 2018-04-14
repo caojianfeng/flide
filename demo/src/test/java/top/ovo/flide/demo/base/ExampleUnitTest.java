@@ -1,4 +1,4 @@
-package top.ovo.flide.demo.demo_base.demo_base;
+package top.ovo.flide.demo.base;
 
 import org.junit.Test;
 
