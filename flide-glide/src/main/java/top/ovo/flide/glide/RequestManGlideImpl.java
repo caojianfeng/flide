@@ -102,6 +102,12 @@ public class RequestManGlideImpl extends RequestMan {
 
         RequestBuilder<Drawable> rb = rm.load(this.url);
         RequestOptions ro = createRequestOptions();
+        if(this.centerCrop){
+            ro = ro.centerCrop();
+        }else if(this.centerInside){
+            ro = ro.centerInside();
+        }
+
         if (ro != null) {
             rb.apply(ro);
         }

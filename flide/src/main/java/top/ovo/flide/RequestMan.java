@@ -26,6 +26,7 @@ public abstract class RequestMan {
     protected boolean crossFade = false;
     protected int crossFadeDuration = 0;
     protected boolean centerCrop = false;
+    protected boolean centerInside = false;
 
     public RequestMan(Object contextWith) {
         if (contextWith instanceof Activity) {
@@ -99,7 +100,16 @@ public abstract class RequestMan {
         return this;
     }
 
-    public RequestMan copy(RequestMan srcRequestMan){
+    public boolean isCenterInside() {
+        return centerInside;
+    }
+
+    public RequestMan centerInside() {
+        this.centerInside = true;
+        return this;
+    }
+
+    public RequestMan copy(RequestMan srcRequestMan) {
         this.activitySoftReference = srcRequestMan.activitySoftReference;
         this.contextSoftReference = srcRequestMan.contextSoftReference;
 
@@ -109,6 +119,7 @@ public abstract class RequestMan {
         this.errorResId = srcRequestMan.errorResId;
 
         this.centerCrop = srcRequestMan.centerCrop;
+        this.centerInside = srcRequestMan.centerInside;
         this.thumbnail = srcRequestMan.thumbnail;
         this.dontAnimate = srcRequestMan.dontAnimate;
         this.crossFade = srcRequestMan.crossFade;

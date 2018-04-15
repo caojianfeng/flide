@@ -38,7 +38,7 @@ public class MainActivity extends BaseDemoActivity {
                     .thumbnail(imageConfigs.getScale())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .dontAnimate()
-                    .centerCrop()
+                    .centerInside()
                     .placeholder(imageConfigs.getPlaceHolderResId())
                     .error(imageConfigs.getErrorResId())
                     .into(view);

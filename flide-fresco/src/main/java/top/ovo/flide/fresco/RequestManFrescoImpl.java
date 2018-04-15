@@ -74,11 +74,8 @@ public class RequestManFrescoImpl extends RequestMan {
         }
 
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) imageView;
-        simpleDraweeView.getHierarchy().setPlaceholderImage(this.placeHolderResId);
-        simpleDraweeView.getHierarchy().setFailureImage(this.errorResId);
-        if (this.centerCrop) {
-            simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
-        }
+
+
         if (this.thumbnail > 0) {
             ImageRequest request = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url))
                     .setResizeOptions(new ResizeOptions(dip2px(context, 100), dip2px(context, 100)))
@@ -120,6 +117,19 @@ public class RequestManFrescoImpl extends RequestMan {
                     })
                     .build();
             simpleDraweeView.setController(controller);
+        }
+
+        if (this.centerCrop) {
+            simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
+            simpleDraweeView.getHierarchy().setPlaceholderImage(this.placeHolderResId, ScalingUtils.ScaleType.CENTER_CROP);
+            simpleDraweeView.getHierarchy().setFailureImage(this.errorResId, ScalingUtils.ScaleType.CENTER_CROP);
+        } else if (this.centerInside){
+            simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_INSIDE);
+            simpleDraweeView.getHierarchy().setPlaceholderImage(this.placeHolderResId, ScalingUtils.ScaleType.CENTER_INSIDE);
+            simpleDraweeView.getHierarchy().setFailureImage(this.errorResId, ScalingUtils.ScaleType.CENTER_INSIDE);
+        } else{
+            simpleDraweeView.getHierarchy().setPlaceholderImage(this.placeHolderResId);
+            simpleDraweeView.getHierarchy().setFailureImage(this.errorResId);
         }
         simpleDraweeView.setImageURI(url);
     }
